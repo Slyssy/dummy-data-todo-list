@@ -29,9 +29,18 @@ const populateTodos = () => {
     const todoID = todo.id;
     const toDoTitle = todo.title;
     const taskComplete = todo.completed;
+    console.log(taskComplete);
 
     const listItem = document.createElement('li');
     listItem.innerHTML = `${toDoTitle}`;
     document.querySelector('#todo-list').appendChild(listItem);
+    taskCompleted(taskComplete, listItem);
   });
+};
+
+const taskCompleted = (item, element) => {
+  if (item === true) {
+    element.style.setProperty('text-decoration', 'line-through');
+    element.style.color = 'red';
+  }
 };
