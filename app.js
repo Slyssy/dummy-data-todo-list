@@ -24,11 +24,20 @@ const logTodos = () => {
 };
 
 const populateTodos = (element) => {
+  const ol = document.querySelector('#todo-list');
+  const lis = ol.querySelectorAll('li');
+  lis.forEach((li) => li.parentNode.removeChild(li));
+  console.log(lis);
   const user = +element.id.slice(5);
   console.log(user);
   const filterTodos = arrayOfTodos.filter((todo) => todo.userId === user);
 
-  let toDo = filterTodos.map((todo) => {
+  let arrayData;
+  if (user === 00) {
+    arrayData = arrayOfTodos;
+  } else arrayData = filterTodos;
+
+  let toDo = arrayData.map((todo) => {
     const userID = todo.userId;
     const todoID = todo.id;
     const toDoTitle = todo.title;
@@ -36,7 +45,7 @@ const populateTodos = (element) => {
 
     const listItem = document.createElement('li');
     listItem.innerHTML = `${toDoTitle}`;
-    document.querySelector('#todo-list').appendChild(listItem);
+    ol.appendChild(listItem);
     taskCompleted(taskComplete, listItem);
   });
 };
