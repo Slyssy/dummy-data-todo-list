@@ -23,13 +23,16 @@ const logTodos = () => {
   console.log(arrayOfTodos);
 };
 
-const populateTodos = () => {
-  let toDo = arrayOfTodos.map((todo) => {
+const populateTodos = (element) => {
+  const user = +element.id.slice(5);
+  console.log(user);
+  const filterTodos = arrayOfTodos.filter((todo) => todo.userId === user);
+
+  let toDo = filterTodos.map((todo) => {
     const userID = todo.userId;
     const todoID = todo.id;
     const toDoTitle = todo.title;
     const taskComplete = todo.completed;
-    console.log(taskComplete);
 
     const listItem = document.createElement('li');
     listItem.innerHTML = `${toDoTitle}`;
