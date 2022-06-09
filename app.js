@@ -70,6 +70,7 @@ const populateTodos = (element) => {
     }>
     <label for-"todo-item">${toDoTitle}</label><br>
     </div>
+    <hr>
     `
     );
 
