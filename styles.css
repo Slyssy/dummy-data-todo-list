@@ -21,6 +21,7 @@ form {
   margin: 0 auto;
   background-color: var(--platinum);
   padding: 1em;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
