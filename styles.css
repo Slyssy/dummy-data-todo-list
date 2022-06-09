@@ -27,6 +27,21 @@ form {
   animation: fadeIn 1s;
 }
 
+label {
+  color: var(--black);
+}
+
+:checked + label {
+  text-decoration: line-through;
+  color: rgba(28, 29, 32, 0.482);
+}
+
+@keyframes slidebg {
+  to {
+    background-position: 20vw;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -35,18 +50,10 @@ form {
     opacity: 1;
   }
 }
-label {
-  color: var(--black);
-}
 
 #user-0 {
   grid-column: 2/4;
   grid-row: 4;
-}
-
-:checked + label {
-  text-decoration: line-through;
-  color: rgba(28, 29, 32, 0.482);
 }
 
 .buttons-container {
@@ -78,11 +85,6 @@ label {
   animation: slidebg 3s linear infinite;
 }
 
-@keyframes slidebg {
-  to {
-    background-position: 20vw;
-  }
-}
 .checkbox-container {
   display: flex;
   gap: 0.75em;
