@@ -87,6 +87,7 @@ label {
     display: flex;
     justify-content: center;
     padding: 3vw;
+    margin: 0 auto;
   }
 
   form {
