@@ -27,7 +27,8 @@ const populateTodos = (element) => {
   //% Selecting elements
   const form = document.querySelector('#todo-list');
   const inputs = form.querySelectorAll('.checkbox-container');
-  console.log(inputs);
+  // console.log(inputs);
+  form.classList.add('hide');
   //% Looping through the list itmes and clearing them each time the function
   //% is called.
   inputs.forEach((input) => input.parentNode.removeChild(input));
@@ -63,7 +64,7 @@ const populateTodos = (element) => {
     todoList.insertAdjacentHTML(
       'afterbegin',
       `
-      <div class="checkbox-container">
+      <div class="checkbox-container hide">
     <input type="checkbox" name="todo-item" value="todo" ${
       taskComplete ? 'checked' : ''
     }>
@@ -72,8 +73,9 @@ const populateTodos = (element) => {
     `
     );
 
-    //% Calling the taskCompleted function to change the color of and line through
-    //%  the completed tasks.
+    const inputContainer = document.querySelector('.checkbox-container');
+    form.classList.remove('hide');
+    inputContainer.classList.remove('hide');
   });
 };
 
