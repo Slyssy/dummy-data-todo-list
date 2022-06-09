@@ -27,7 +27,6 @@ const populateTodos = (element) => {
   //% Selecting elements
   const form = document.querySelector('#todo-list');
   const inputs = form.querySelectorAll('.checkbox-container');
-  console.log(inputs);
   //% Looping through the list itmes and clearing them each time the function
   //% is called.
   inputs.forEach((input) => input.parentNode.removeChild(input));
