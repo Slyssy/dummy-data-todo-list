@@ -25,11 +25,12 @@ const logTodos = () => {
 
 const populateTodos = (element) => {
   //% Selecting elements
-  const ol = document.querySelector('#todo-list');
-  const lis = ol.querySelectorAll('li');
+  const form = document.querySelector('#todo-list');
+  const inputs = form.querySelectorAll('.checkbox-container');
+  console.log(inputs);
   //% Looping through the list itmes and clearing them each time the function
   //% is called.
-  lis.forEach((li) => li.parentNode.removeChild(li));
+  inputs.forEach((input) => input.parentNode.removeChild(input));
   // console.log(lis);
 
   //% Grabbing the button id and grabbing the last two digits
@@ -54,22 +55,26 @@ const populateTodos = (element) => {
     const taskComplete = todo.completed;
 
     //% Creating a new list element and populating the li's with the data from above.
-    const listItem = document.createElement('li');
-    listItem.innerHTML = `${toDoTitle}`;
-    ol.appendChild(listItem);
+    // const listItem = document.createElement('li');
+    // listItem.innerHTML = `${toDoTitle}`;
+    // ol.appendChild(listItem);
+
+    const todoList = document.querySelector('#todo-list');
+    todoList.insertAdjacentHTML(
+      'afterbegin',
+      `
+      <div class="checkbox-container">
+    <input type="checkbox" name="todo-item" value="todo" ${
+      taskComplete ? 'checked' : ''
+    }>
+    <label for-"todo-item">${toDoTitle}</label><br>
+    </div>
+    `
+    );
 
     //% Calling the taskCompleted function to change the color of and line through
     //%  the completed tasks.
-    taskCompleted(taskComplete, listItem);
   });
-};
-
-//% Function to change the color of and line through the completed tasks.
-const taskCompleted = (item, element) => {
-  if (item === true) {
-    element.style.setProperty('text-decoration', 'line-through');
-    element.style.color = 'red';
-  }
 };
 
 //% Calling fetchTodos function when the page loads.

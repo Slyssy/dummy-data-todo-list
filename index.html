@@ -6,25 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
     <script src="app.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- <button id="user-00" onclick="fetchTodos()">Fetch Todos</button> -->
     <!-- <button onclick="logTodos()">Log Todos</button> -->
-    <button onclick="populateTodos(this)">Populate All Todos</button>
-    <button id="user-1" onclick="populateTodos(this)">User 1 To-Do List</button>
-    <button id="user-2" onclick="populateTodos(this)">User 2 To-Do List</button>
-    <button id="user-3" onclick="populateTodos(this)">User 3 To-Do List</button>
-    <button id="user-4" onclick="populateTodos(this)">User 4 To-Do List</button>
-    <button id="user-5" onclick="populateTodos(this)">User 5 To-Do List</button>
-    <button id="user-6" onclick="populateTodos(this)">User 6 To-Do List</button>
-    <button id="user-7" onclick="populateTodos(this)">User 7 To-Do List</button>
-    <button id="user-8" onclick="populateTodos(this)">User 8 To-Do List</button>
-    <button id="user-9" onclick="populateTodos(this)">User 9 To-Do List</button>
-    <button id="user-10" onclick="populateTodos(this)">
-      User 10 To-Do List
-    </button>
-    <ol id="todo-list">
-      <!-- LIs will go here -->
-    </ol>
+    <div class="buttons-container">
+      <button id="user-0" class="button" onclick="populateTodos(this)">
+        Populate <br />
+        All Todos
+      </button>
+      <button id="user-1" class="button" onclick="populateTodos(this)">
+        User 1 <br />To-Do List
+      </button>
+      <button id="user-2" class="button" onclick="populateTodos(this)">
+        User 2 <br />To-Do List
+      </button>
+      <button id="user-3" class="button" onclick="populateTodos(this)">
+        User 3 <br />To-Do List
+      </button>
+      <button id="user-4" class="button" onclick="populateTodos(this)">
+        User 4 <br />To-Do List
+      </button>
+      <button id="user-5" class="button" onclick="populateTodos(this)">
+        User 5 <br />To-Do List
+      </button>
+      <button id="user-6" class="button" onclick="populateTodos(this)">
+        User 6 <br />To-Do List
+      </button>
+      <button id="user-7" class="button" onclick="populateTodos(this)">
+        User 7 <br />To-Do List
+      </button>
+      <button id="user-8" class="button" onclick="populateTodos(this)">
+        User 8 <br />To-Do List
+      </button>
+      <button id="user-9" class="button" onclick="populateTodos(this)">
+        User 9 <br />To-Do List
+      </button>
+      <button id="user-10" class="button" onclick="populateTodos(this)">
+        User 10 <br />To-Do List
+      </button>
+    </div>
+    <form action="" id="todo-list">
+      <!-- Checkboxes go here -->
+    </form>
   </body>
 </html>
