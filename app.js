@@ -36,7 +36,7 @@ const populateTodos = (element) => {
 
   //% Grabbing the button id and grabbing the last two digits
   const user = +element.id.slice(5);
-  // console.log(user);
+  console.log(user);
 
   //% Creating an array by filter it by the User ID.
   const filterTodos = arrayOfTodos.filter((todo) => todo.userId === user);
