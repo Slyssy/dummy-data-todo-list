@@ -1,17 +1,9 @@
-let arrayOfTodos = [
-  {
-    userId: 14,
-    id: 1,
-    title: 'delectus aut autem',
-    completed: false,
-  },
-  {
-    userId: 20,
-    id: 2,
-    title: 'delectus aut autem',
-    completed: false,
-  },
-];
+let arrayOfTodos;
+let arrayData;
+let filteredUsers;
+let completedTask;
+let incompleteTask;
+let todoList = document.querySelector('#todo-list');
 
 const fetchTodos = () => {
   fetch('https://jsonplaceholder.typicode.com/todos')
@@ -37,30 +29,46 @@ const populateTodos = (element) => {
   //% Grabbing the button id and grabbing the last two digits
   const user = +element.id.slice(5);
   console.log(user);
+  const taskStatus = element.className;
+  console.log(taskStatus);
 
-  //% Creating an array by filter it by the User ID.
-  const filterTodos = arrayOfTodos.filter((todo) => todo.userId === user);
+  if (taskStatus === 'complete') {
+    arrayOfTodos.filter((todo) => {
+      todo.completed = true;
+    });
+  } else if (taskStatus === 'incomplete') {
+    arrayOfTodos.filter((todo) => {
+      todo.completed = false;
+    });
+  }
+
+  if (taskStatus === 'all-tasks') {
+    arrayOfTodos = arrayOfTodos;
+  }
+
+  //% Creating an array by filtering it by the User ID.
+  filteredUsers = arrayOfTodos.filter((todo) => todo.userId === user);
 
   //% Create a conditional statement to select which array we are going to map.
-  let arrayData;
   if (user === 00) {
     arrayData = arrayOfTodos;
-  } else arrayData = filterTodos;
+  } else if (user !== 0) {
+    arrayData = filteredUsers;
+  }
+  console.log(arrayData);
+
+  //%Filtering array data by completed status.
+  completedTask = arrayData.filter((todo) => todo.completed === true);
+  incompleteTask = arrayData.filter((todo) => todo.completed === false);
 
   //% Using the map method to to grab each object from the array of objects, and
   //% setting variables for object values.
-  let toDo = arrayData.map((todo) => {
-    const userID = todo.userId;
-    const todoID = todo.id;
+  arrayData.map((todo) => {
     const toDoTitle = todo.title;
     const taskComplete = todo.completed;
 
     //% Creating a new list element and populating the li's with the data from above.
-    // const listItem = document.createElement('li');
-    // listItem.innerHTML = `${toDoTitle}`;
-    // ol.appendChild(listItem);
 
-    const todoList = document.querySelector('#todo-list');
     todoList.insertAdjacentHTML(
       'afterbegin',
       `
@@ -79,5 +87,32 @@ const populateTodos = (element) => {
   });
 };
 
+// const filterCompletedTasks = (event) => {
+//   completedTask = arrayData.filter((todo) => {
+//     todo.completed === true;
+//     arrayData = completedTask;
+//     arrayData.map((todo) => {
+//       const userID = todo.userId;
+//       const todoID = todo.id;
+//       const toDoTitle = todo.title;
+//       const taskComplete = todo.completed;
+
+//       //% Creating a new list element and populating the li's with the data from above.
+
+//       todoList.insertAdjacentHTML(
+//         'afterbegin',
+//         `
+//         <div class="checkbox-container hide">
+//       <input type="checkbox" name="todo-item" value="todo" ${
+//         taskComplete ? 'checked' : ''
+//       }>
+//       <label for-"todo-item">${toDoTitle}</label><br>
+//       </div>
+//       `
+//       );
+//     });
+//   });
+//   console.log(arrayData);
+// };
 //% Calling fetchTodos function when the page loads.
 window.onload = fetchTodos();

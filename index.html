@@ -18,60 +18,140 @@
     <header>
       <h1>Multi-User To-Do List</h1>
     </header>
-    <button id="user-00" onclick="fetchTodos()">Fetch Todos</button>
-    <button onclick="logTodos()">Log Todos</button>
+    <!-- <button id="user-00" onclick="fetchTodos()">Fetch Todos</button>
+    <button onclick="logTodos()">Log Todos</button> -->
     <section>
-      <div class="list-choice">
-        <div class="list-choice-title">Select User</div>
-        <div class="list-choice-objects">
-          <label>
-            <input type="radio" name="user" onchange="populateTodos(this)"/> <span>All Users</span>
-          </label>
-          <label>
-            <input id="user-1" type="radio" name="user" onchange="populateTodos(this)"/> <span>User 1</span>
-          </label>
-          <label>
-            <input id="user-2" type="radio" name="user" onchange="populateTodos(this)"/> <span>User 2</span>
-          </label>
-          <label>
-            <input id="user-3" type="radio" name="user" onchange="populateTodos(this)"/> <span>User 3</span>
-          </label>
-          <label>
-            <input id="user-4" type="radio" name="user" onchange="populateTodos(this)"/> <span>User 4</span>
-          </label>
-          <label>
-            <input id="user-5" type="radio" name="user" onchange="populateTodos(this)"/> <span>User 5</span>
-          </label>
-          <label>
-            <input id="user-6" type="radio" name="user" onchange="populateTodos(this)"/> <span>User 6</span>
-          </label>
-          <label>
-            <input id="user-7" type="radio" name="user" onchange="populateTodos(this)"/> <span>User 7</span>
-          </label>
-          <label>
-            <input id="user-8" type="radio" name="user" onchange="populateTodos(this)"/> <span>User 8</span>
-          </label>
-          <label>
-            <input id="user-9" type="radio" name="user" onchange="populateTodos(this)"/> <span>User 9</span>
-          </label>
-          <label>
-            <input id="user-10" type="radio" name="user" onchange="populateTodos(this)"/> <span>User 10</span>
-          </label>
-        </div>
-      </div>
       <div class="list-choice">
         <div class="list-choice-title">Task Status</div>
         <div class="list-choice-objects">
           <label>
-            <input type="radio" name="user" /> <span>All Tasks</span>
+            <input
+              class="all-tasks"
+              type="radio"
+              name="user"
+              onchange="populateTodos(this)"
+            />
+            <span>All Tasks</span>
           </label>
           <label>
-            <input type="radio" name="user" /> <span>Complete</span>
+            <input
+              class="incomplete"
+              type="radio"
+              name="user"
+              onchange="populateTodos(this)"
+            />
+            <span>Incomplete</span>
           </label>
           <label>
-            <input type="radio" name="user" /> <span>Incomplete</span>
+            <input
+              class="complete"
+              type="radio"
+              name="user"
+              onchange="populateTodos(this)"
+            />
+            <span>Complete</span>
           </label>
         </div>
+      </div>
+      <div class="list-choice">
+        <div class="list-choice-title">Select User</div>
+        <div class="list-choice-objects">
+          <label>
+            <input type="radio" name="user" onchange="populateTodos(this)" />
+            <span>All Users</span>
+          </label>
+          <label>
+            <input
+              id="user-1"
+              type="radio"
+              name="user"
+              onchange="populateTodos(this)"
+            />
+            <span>User 1</span>
+          </label>
+          <label>
+            <input
+              id="user-2"
+              type="radio"
+              name="user"
+              onchange="populateTodos(this)"
+            />
+            <span>User 2</span>
+          </label>
+          <label>
+            <input
+              id="user-3"
+              type="radio"
+              name="user"
+              onchange="populateTodos(this)"
+            />
+            <span>User 3</span>
+          </label>
+          <label>
+            <input
+              id="user-4"
+              type="radio"
+              name="user"
+              onchange="populateTodos(this)"
+            />
+            <span>User 4</span>
+          </label>
+          <label>
+            <input
+              id="user-5"
+              type="radio"
+              name="user"
+              onchange="populateTodos(this)"
+            />
+            <span>User 5</span>
+          </label>
+          <label>
+            <input
+              id="user-6"
+              type="radio"
+              name="user"
+              onchange="populateTodos(this)"
+            />
+            <span>User 6</span>
+          </label>
+          <label>
+            <input
+              id="user-7"
+              type="radio"
+              name="user"
+              onchange="populateTodos(this)"
+            />
+            <span>User 7</span>
+          </label>
+          <label>
+            <input
+              id="user-8"
+              type="radio"
+              name="user"
+              onchange="populateTodos(this)"
+            />
+            <span>User 8</span>
+          </label>
+          <label>
+            <input
+              id="user-9"
+              type="radio"
+              name="user"
+              onchange="populateTodos(this)"
+            />
+            <span>User 9</span>
+          </label>
+          <label>
+            <input
+              id="user-10"
+              type="radio"
+              name="user"
+              onchange="populateTodos(this)"
+            />
+            <span>User 10</span>
+          </label>
+        </div>
+      </div>
     </section>
     <main>
       <!-- <div class="buttons-container">
