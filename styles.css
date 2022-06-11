@@ -45,6 +45,9 @@ input[type='checkbox']:checked + label {
   color: rgba(28, 29, 32, 0.482);
 }
 
+input[type='radio'] + label {
+  color: var(--white);
+}
 @keyframes slidebg {
   to {
     background-position: 20vw;
@@ -66,6 +69,9 @@ input[type='checkbox']:checked + label {
   font-size: 12px;
   justify-items: center;
   gap: 16px;
+  background-color: var(--oxford-blue);
+  border-radius: 8px;
+  padding: 1em 0;
 }
 
 #user-0 {
@@ -167,6 +173,6 @@ input[type='checkbox']:checked + label {
     gap: 1em;
     position: fixed;
     top: 155px;
-    left: 100px;
+    left: 8%;
   }
 }
