@@ -32,18 +32,19 @@ const populateTodos = (element) => {
   const taskStatus = element.className;
   console.log(taskStatus);
 
+  let arrayOfTodosCopy = Array.from(arrayOfTodos);
   if (taskStatus === 'complete') {
-    arrayOfTodos.filter((todo) => {
+    arrayOfTodosCopy.filter((todo) => {
       todo.completed = true;
     });
   } else if (taskStatus === 'incomplete') {
-    arrayOfTodos.filter((todo) => {
+    arrayOfTodosCopy.filter((todo) => {
       todo.completed = false;
     });
   }
 
   if (taskStatus === 'all-tasks') {
-    arrayOfTodos = arrayOfTodos;
+    arrayOfTodos;
   }
 
   //% Creating an array by filtering it by the User ID.
