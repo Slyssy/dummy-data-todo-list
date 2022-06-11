@@ -59,12 +59,24 @@ input[type='checkbox']:checked + label {
     opacity: 1;
   }
 }
+#status-container {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 12px;
+  justify-items: center;
+  gap: 16px;
+}
 
 #user-0 {
   grid-column: 2/4;
-  grid-row: 4;
+  grid-row: 5;
 }
 
+#all-todos-radio {
+  grid-column: span 2;
+  justify-self: center;
+}
 .buttons-container {
   width: 90vw;
   margin: 2vh auto;
@@ -137,9 +149,13 @@ input[type='checkbox']:checked + label {
     justify-self: center;
   }
 
+  #status-container {
+    font-size: 16px;
+  }
+
   #user-0 {
-    grid-column: span 2;
-    grid-row: 6;
+    grid-column: 2/4;
+    grid-row: 5;
   }
 
   .buttons-container {
