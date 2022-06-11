@@ -1,5 +1,6 @@
 let arrayOfTodos;
 let arrayData;
+let todoStatus;
 
 let incompleteTasks = document.querySelector('#incomplete-todos').value;
 console.log(incompleteTasks);
@@ -26,11 +27,9 @@ const populateTodos = (element) => {
   //% Looping through the list itmes and clearing them each time the function
   //% is called.
   inputs.forEach((input) => input.parentNode.removeChild(input));
-  // console.log(lis);
 
   //% Grabbing the button id and grabbing the last two digits
   const user = +element.id.slice(5);
-  // console.log(user);
 
   //% Creating an array by filter it by the User ID.
   const filterTodos = arrayOfTodos.filter((todo) => todo.userId === user);
@@ -40,19 +39,23 @@ const populateTodos = (element) => {
     arrayData = arrayOfTodos;
   } else arrayData = filterTodos;
 
-  let todoStatus;
+  //% Watching the radio buttons to update the status of the the todoStatus
+  //% variable based on which radio button is selected.
+
   for (const radioButton of radioButtons) {
     if (radioButton.checked) {
       todoStatus = radioButton.value;
       break;
     }
   }
-  console.log(todoStatus);
 
+  //% Setting variables for different array data so I can use them later.
   const incompleteTodos = arrayData.filter((todo) => todo.completed === false);
   const completeTodos = arrayData.filter((todo) => todo.completed === true);
   const allTodos = arrayData;
 
+  //% Logic to select which array data I will use when populateTodos() is
+  //% called.
   if (todoStatus === 'all') {
     arrayData = allTodos;
   }
@@ -63,15 +66,14 @@ const populateTodos = (element) => {
     arrayData = completeTodos;
   }
 
-  //% Using the map method to to grab each object from the array of objects, and
-  //% setting variables for object values.
+  //% Using the forEach method to to grab each object from the array of
+  //% objects, and setting variables for object values.
   arrayData.forEach((todo) => {
-    const userID = todo.userId;
-    const todoID = todo.id;
     const toDoTitle = todo.title;
     const taskComplete = todo.completed;
 
-    //% Creating a new list element and populating the li's with the data from above.
+    //% Creating a new list element and populating the li's with the data from
+    //% above.
     const todoList = document.querySelector('#todo-list');
     todoList.insertAdjacentHTML(
       'afterbegin',
@@ -85,20 +87,13 @@ const populateTodos = (element) => {
     `
     );
 
+    //% The logic below will remove the hide class allowing the checkboxes to be
+    //% displayed.
     const inputContainer = document.querySelector('.checkbox-container');
     form.classList.remove('hide');
     inputContainer.classList.remove('hide');
   });
 };
 
-// incompleteTasks.addEventListener(onchange, (data) => {
-//   data.filter((obj) => {
-//     obj.completed = incompleteTasks.value;
-//   });
-// });
 //% Calling fetchTodos function when the page loads.
 window.onload = fetchTodos();
-
-const checkStatus = (array) => {
-  array.filter((todo) => todo.completed === false);
-};

@@ -93,6 +93,7 @@ input[type='checkbox']:checked + label {
   padding: 0.25em;
   border-radius: 8px;
   cursor: pointer;
+  width: 100%;
 }
 
 .button:hover {
@@ -162,7 +163,7 @@ input[type='checkbox']:checked + label {
     width: 35vw;
     margin: 2vh auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1em;
     position: fixed;
     top: 155px;
