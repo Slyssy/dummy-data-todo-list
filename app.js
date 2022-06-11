@@ -49,12 +49,20 @@ const populateTodos = (element) => {
   }
   console.log(todoStatus);
 
-  if (todoStatus === 'incomplete') {
-    arrayData.filter((todo) => {
-      todo.completed === 'false';
-    });
+  const incompleteTodos = arrayData.filter((todo) => todo.completed === false);
+  const completeTodos = arrayData.filter((todo) => todo.completed === true);
+  const allTodos = arrayData;
+
+  if (todoStatus === 'all') {
+    arrayData = allTodos;
   }
-  console.log(arrayData);
+  if (todoStatus === 'incomplete') {
+    arrayData = incompleteTodos;
+  }
+  if (todoStatus === 'complete') {
+    arrayData = completeTodos;
+  }
+
   //% Using the map method to to grab each object from the array of objects, and
   //% setting variables for object values.
   arrayData.forEach((todo) => {
@@ -90,3 +98,7 @@ const populateTodos = (element) => {
 // });
 //% Calling fetchTodos function when the page loads.
 window.onload = fetchTodos();
+
+const checkStatus = (array) => {
+  array.filter((todo) => todo.completed === false);
+};
