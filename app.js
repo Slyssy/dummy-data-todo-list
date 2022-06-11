@@ -1,17 +1,11 @@
-let arrayOfTodos = [
-  {
-    userId: 14,
-    id: 1,
-    title: 'delectus aut autem',
-    completed: false,
-  },
-  {
-    userId: 20,
-    id: 2,
-    title: 'delectus aut autem',
-    completed: false,
-  },
-];
+let arrayOfTodos;
+let arrayData;
+
+let incompleteTasks = document.querySelector('#incomplete-todos').value;
+console.log(incompleteTasks);
+let completedTasks = document.querySelector('#complete-todos').value;
+const radioButtons = document.querySelectorAll('input[name=todos-status]');
+console.log(radioButtons);
 
 const fetchTodos = () => {
   fetch('https://jsonplaceholder.typicode.com/todos')
@@ -42,24 +36,34 @@ const populateTodos = (element) => {
   const filterTodos = arrayOfTodos.filter((todo) => todo.userId === user);
 
   //% Create a conditional statement to select which array we are going to map.
-  let arrayData;
   if (user === 00) {
     arrayData = arrayOfTodos;
   } else arrayData = filterTodos;
 
+  let todoStatus;
+  for (const radioButton of radioButtons) {
+    if (radioButton.checked) {
+      todoStatus = radioButton.value;
+      break;
+    }
+  }
+  console.log(todoStatus);
+
+  if (todoStatus === 'incomplete') {
+    arrayData.filter((todo) => {
+      todo.completed === 'false';
+    });
+  }
+  console.log(arrayData);
   //% Using the map method to to grab each object from the array of objects, and
   //% setting variables for object values.
-  let toDo = arrayData.map((todo) => {
+  arrayData.forEach((todo) => {
     const userID = todo.userId;
     const todoID = todo.id;
     const toDoTitle = todo.title;
     const taskComplete = todo.completed;
 
     //% Creating a new list element and populating the li's with the data from above.
-    // const listItem = document.createElement('li');
-    // listItem.innerHTML = `${toDoTitle}`;
-    // ol.appendChild(listItem);
-
     const todoList = document.querySelector('#todo-list');
     todoList.insertAdjacentHTML(
       'afterbegin',
@@ -79,5 +83,10 @@ const populateTodos = (element) => {
   });
 };
 
+// incompleteTasks.addEventListener(onchange, (data) => {
+//   data.filter((obj) => {
+//     obj.completed = incompleteTasks.value;
+//   });
+// });
 //% Calling fetchTodos function when the page loads.
 window.onload = fetchTodos();

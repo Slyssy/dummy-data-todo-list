@@ -40,7 +40,7 @@ label {
   color: var(--black);
 }
 
-:checked + label {
+input[type='checkbox']:checked + label {
   text-decoration: line-through;
   color: rgba(28, 29, 32, 0.482);
 }
@@ -113,7 +113,7 @@ label {
   }
 
   form {
-    width: 100%;
+    width: 80%;
     grid-column: 2;
   }
 
@@ -132,11 +132,22 @@ label {
     padding-top: 32px;
   }
 
+  #all-todos-radio {
+    grid-column: span 2;
+    justify-self: center;
+  }
+
+  #user-0 {
+    grid-column: span 2;
+    grid-row: 6;
+  }
+
   .buttons-container {
-    width: 30vw;
+    width: 35vw;
     margin: 2vh auto;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
     position: fixed;
     top: 155px;
     left: 100px;

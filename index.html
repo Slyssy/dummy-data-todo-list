@@ -56,6 +56,34 @@
         <button id="user-10" class="button" onclick="populateTodos(this)">
           User 10 <br />To-Do List
         </button>
+        <div id="incomplete-todos-radio">
+          <input
+            type="radio"
+            id="incomplete-todos"
+            name="todos-status"
+            value="incomplete"
+          />
+          <label for="incomplete-todos">Incomplete Tasks</label>
+        </div>
+        <div id="complete-todos-radio">
+          <input
+            type="radio"
+            id="complete-todos"
+            name="todos-status"
+            value="complete"
+          />
+          <label for="complete-todos">Completed Tasks</label>
+        </div>
+        <div id="all-todos-radio">
+          <input
+            type="radio"
+            id="all-todos"
+            name="todos-status"
+            value="all"
+            checked
+          />
+          <label for="all-todos">Show All Tasks</label>
+        </div>
       </div>
       <form action="" id="todo-list" class="hide">
         <!-- Checkboxes go here -->
