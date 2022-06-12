@@ -6,8 +6,9 @@ let incompleteTasks = document.querySelector('#incomplete-todos').value;
 console.log(incompleteTasks);
 let completedTasks = document.querySelector('#complete-todos').value;
 const radioButtons = document.querySelectorAll('input[name=todos-status]');
-console.log(radioButtons);
 
+//? Function to fetch the API and then convert the api response to a json and
+//? assigning that converting that json to a variable
 const fetchTodos = () => {
   fetch('https://jsonplaceholder.typicode.com/todos')
     .then((response) => response.json())
@@ -66,8 +67,8 @@ const populateTodos = (element) => {
     arrayData = completeTodos;
   }
 
-  //% Using the forEach method to to grab each object from the array of
-  //% objects, and setting variables for object values.
+  //% Using the forEach method to to grab each object from the array of objects,
+  //% and setting variables for object values.
   arrayData.forEach((todo) => {
     const toDoTitle = todo.title;
     const taskComplete = todo.completed;
