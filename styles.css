@@ -95,7 +95,7 @@ input[type='radio'] + label {
 .button {
   background-color: var(--oxford-blue);
   color: var(--white);
-  font-size: 18px;
+  font-size: 12px;
   padding: 0.25em;
   border-radius: 8px;
   cursor: pointer;
@@ -147,7 +147,7 @@ input[type='radio'] + label {
     margin: 0 auto;
     background-color: var(--platinum);
     border-radius: 10px;
-    min-height: 800px;
+    min-height: 470px;
     padding-top: 32px;
   }
 
@@ -163,6 +163,10 @@ input[type='radio'] + label {
   #user-0 {
     grid-column: 2/4;
     grid-row: 5;
+  }
+
+  .button {
+    font-size: 18px;
   }
 
   .buttons-container {

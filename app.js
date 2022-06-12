@@ -21,7 +21,7 @@ const logTodos = () => {
 const populateTodos = (element) => {
   //% Selecting elements
   const form = document.querySelector('#todo-list');
-  const inputs = form.querySelectorAll('.checkbox-container');
+  const inputs = form.querySelectorAll('.checkbox-input');
   // console.log(inputs);
   form.classList.add('hide');
   //% Looping through the list itmes and clearing them each time the function
@@ -31,7 +31,7 @@ const populateTodos = (element) => {
   //% Grabbing the button id and grabbing the last two digits
   const user = +element.id.slice(5);
 
-  //% Creating an array by filter it by the User ID.
+  //% Creating an array by filtering the returned array by the object User ID.
   const filterTodos = arrayOfTodos.filter((todo) => todo.userId === user);
 
   //% Create a conditional statement to select which array we are going to map.
@@ -49,12 +49,12 @@ const populateTodos = (element) => {
     }
   }
 
-  //% Setting variables for different array data so I can use them later.
+  //% Setting variables for arrays filtered by completed status.
   const incompleteTodos = arrayData.filter((todo) => todo.completed === false);
   const completeTodos = arrayData.filter((todo) => todo.completed === true);
   const allTodos = arrayData;
 
-  //% Logic to select which array data I will use when populateTodos() is
+  //% Logic to select which filtered array will be used when populateTodos is
   //% called.
   if (todoStatus === 'all') {
     arrayData = allTodos;
@@ -78,7 +78,7 @@ const populateTodos = (element) => {
     todoList.insertAdjacentHTML(
       'afterbegin',
       `
-      <div class="checkbox-container hide">
+      <div class="checkbox-input hide">
     <input type="checkbox" name="todo-item" value="todo" ${
       taskComplete ? 'checked' : ''
     }>
@@ -89,7 +89,7 @@ const populateTodos = (element) => {
 
     //% The logic below will remove the hide class allowing the checkboxes to be
     //% displayed.
-    const inputContainer = document.querySelector('.checkbox-container');
+    const inputContainer = document.querySelector('.checkbox-input');
     form.classList.remove('hide');
     inputContainer.classList.remove('hide');
   });
