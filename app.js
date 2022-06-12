@@ -3,7 +3,6 @@ let arrayData;
 let todoStatus;
 
 let incompleteTasks = document.querySelector('#incomplete-todos').value;
-console.log(incompleteTasks);
 let completedTasks = document.querySelector('#complete-todos').value;
 const radioButtons = document.querySelectorAll('input[name=todos-status]');
 
@@ -23,7 +22,7 @@ const populateTodos = (element) => {
   //% Selecting elements
   const form = document.querySelector('#todo-list');
   const inputs = form.querySelectorAll('.checkbox-input');
-  // console.log(inputs);
+
   form.classList.add('hide');
   //% Looping through the list itmes and clearing them each time the function
   //% is called.
