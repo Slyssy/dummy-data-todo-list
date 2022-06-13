@@ -40,11 +40,14 @@ label {
   color: var(--black);
 }
 
-:checked + label {
+input[type='checkbox']:checked + label {
   text-decoration: line-through;
   color: rgba(28, 29, 32, 0.482);
 }
 
+input[type='radio'] + label {
+  color: var(--white);
+}
 @keyframes slidebg {
   to {
     background-position: 20vw;
@@ -59,12 +62,27 @@ label {
     opacity: 1;
   }
 }
+#status-container {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 12px;
+  justify-items: center;
+  gap: 16px;
+  background-color: var(--oxford-blue);
+  border-radius: 8px;
+  padding: 1em 0;
+}
 
 #user-0 {
   grid-column: 2/4;
-  grid-row: 4;
+  grid-row: 5;
 }
 
+#all-todos-radio {
+  grid-column: span 2;
+  justify-self: center;
+}
 .buttons-container {
   width: 90vw;
   margin: 2vh auto;
@@ -77,10 +95,11 @@ label {
 .button {
   background-color: var(--oxford-blue);
   color: var(--white);
-  font-size: 18px;
+  font-size: 12px;
   padding: 0.25em;
   border-radius: 8px;
   cursor: pointer;
+  width: 100%;
 }
 
 .button:hover {
@@ -94,7 +113,7 @@ label {
   animation: slidebg 3s linear infinite;
 }
 
-.checkbox-container {
+.checkbox-input {
   display: flex;
   gap: 0.75em;
   align-items: center;
@@ -113,7 +132,7 @@ label {
   }
 
   form {
-    width: 100%;
+    width: 80%;
     grid-column: 2;
   }
 
@@ -128,17 +147,36 @@ label {
     margin: 0 auto;
     background-color: var(--platinum);
     border-radius: 10px;
-    min-height: 800px;
+    min-height: 470px;
     padding-top: 32px;
   }
 
+  #all-todos-radio {
+    grid-column: span 2;
+    justify-self: center;
+  }
+
+  #status-container {
+    font-size: 16px;
+  }
+
+  #user-0 {
+    grid-column: 2/4;
+    grid-row: 5;
+  }
+
+  .button {
+    font-size: 18px;
+  }
+
   .buttons-container {
-    width: 30vw;
+    width: 35vw;
     margin: 2vh auto;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
     position: fixed;
     top: 155px;
-    left: 100px;
+    left: 8%;
   }
 }

@@ -22,6 +22,36 @@
     <!-- <button onclick="logTodos()">Log Todos</button> -->
     <main>
       <div class="buttons-container">
+        <div id="status-container">
+          <div id="incomplete-todos-radio">
+            <input
+              type="radio"
+              id="incomplete-todos"
+              name="todos-status"
+              value="incomplete"
+            />
+            <label for="incomplete-todos">Incomplete Tasks</label>
+          </div>
+          <div id="complete-todos-radio">
+            <input
+              type="radio"
+              id="complete-todos"
+              name="todos-status"
+              value="complete"
+            />
+            <label for="complete-todos">Completed Tasks</label>
+          </div>
+          <div id="all-todos-radio">
+            <input
+              type="radio"
+              id="all-todos"
+              name="todos-status"
+              value="all"
+              checked
+            />
+            <label for="all-todos">Show All Tasks</label>
+          </div>
+        </div>
         <button id="user-0" class="button" onclick="populateTodos(this)">
           Populate <br />
           All Todos
